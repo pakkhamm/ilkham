@@ -3,9 +3,7 @@ const db = require("../config/mysql");
 const path = require("path");
 const router = express.Router();
 
-router.get("/",(req,res,next)=>{
-    res.status(200).sendFile(path.join(__dirname,"../","view","index.html"));
-});
+
 router.post("/",(req,res,next)=>{
     const moisture = req.body.moisture;
     const sql = "REPLACE INTO sptakad(moisture) VALUES ?";
@@ -16,6 +14,8 @@ router.post("/",(req,res,next)=>{
             message : "berhasil menambah data"
         })
     })
-})
-
+});
+router.get("/",(req,res,next)=>{
+    res.status(200).sendFile(path.join(__dirname,"../","view","index.html"));
+});
 module.exports = router;
