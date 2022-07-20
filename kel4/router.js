@@ -4,7 +4,7 @@ const path = require("path");
 const router = express.Router();
 
 router.get("/",(req,res,next)=>{
-    res.sendFile(path.join(__dirname,"../","view","index.html"));
+    res.status(200).sendFile(path.join(__dirname,"../","view","index.html"));
 });
 router.post("/",(req,res,next)=>{
     const moisture = req.body.moisture;
